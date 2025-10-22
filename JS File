@@ -1,3 +1,3 @@
 // Minimal placeholder application file
-console.log("Application starting up... running in Docker container.");
+console.log("Application starting up... running in Docker container123.");
 // In a real app, this would be your main server logic.
