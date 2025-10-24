@@ -5,7 +5,7 @@ pipeline {
     // 2. Environment: Variables used throughout the pipeline.
     environment {
         // !!! IMPORTANT: Replace 'your-user/my-app' with your actual Docker Hub/Registry path
-        DOCKER_IMAGE = "your-user/my-app"
+        DOCKER_IMAGE = "khushi14kachhawaha/my-app"
         // Uses the unique Jenkins build number for the image version tag
         IMAGE_TAG = "${env.BUILD_NUMBER}"
         // Credential ID matching the secret you set up in Jenkins (See Step 2 below)
