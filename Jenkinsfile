@@ -33,7 +33,7 @@ pipeline {
             steps {
                 echo 'Running automated tests inside the Docker container...'
                 // Run a command inside the newly built image for unit/integration testing
-                sh "docker run --rm ${DOCKER_IMAGE}:${IMAGE_TAG} sh -c 'echo \"All tests passed successfully (Simulated)!\"'"
+                sh "docker run --rm ${DOCKER_IMAGE}:${IMAGE_TAG} npm test"
             }
         }
 
