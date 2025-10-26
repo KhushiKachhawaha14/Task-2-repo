@@ -1,14 +1,26 @@
-# Use an official lightweight Node.js image as the base
-FROM node:20-alpine
+# This is a minimal Dockerfile required for the Jenkinsfile to execute the 'docker build' command successfully.
+# It simulates a simple NodeJS application.
 
-# Set the working directory
+# Base image
+FROM node:18-alpine
+
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy package files (we only need server.js for this minimal example)
-COPY server.js .
+# Copy package.json and install dependencies
+COPY package.json .
+RUN npm install
 
-# Expose the port (standard practice)
+# Copy the rest of the application code
+COPY . .
+
+# Expose the application port (must match the Jenkinsfile's APP_PORT)
 EXPOSE 8080
 
-# Command to run the application when the container starts
+# Command to run the application
 CMD ["node", "server.js"]
+
+# Add a placeholder package.json and server.js to the repository 
+# (These aren't provided here, but are needed in your Git repo root)
+# package.json: {"name": "sample-app", "version": "1.0.0", "scripts": {"start": "node server.js"}}
+# server.js: (A simple express or HTTP server file)
