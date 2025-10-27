@@ -22,7 +22,7 @@ pipeline {
                 // Build the Docker image using the Dockerfile in the workspace root.
                 // The current build ID is used as the image tag.
                 bat 'docker build -t devops-internship/sample-web-app:2 .' 
-                sh "docker tag ${IMAGE_NAME}:${BUILD_ID} ${IMAGE_NAME}:latest"
+                bat "docker tag ${IMAGE_NAME}:${BUILD_ID} ${IMAGE_NAME}:latest"
             }
         }
 
@@ -34,7 +34,7 @@ pipeline {
                 echo 'Running simulated unit tests...'
                 // You would typically run a container for testing and then remove it (--rm)
                 // For demonstration, we just simulate a shell script test run.
-                sh 'echo "Tests successful: All 42 unit tests passed!"'
+                bat 'echo "Tests successful: All 42 unit tests passed!"'
                 // Add an actual command here if you had a test runner script:
                 // sh "docker run --rm ${IMAGE_NAME}:${BUILD_ID} /app/run_tests.sh"
             }
@@ -49,8 +49,8 @@ pipeline {
                 // '|| true' ensures the pipeline doesn't fail if the container doesn't exist.
                 script {
                     try {
-                        sh "docker stop my-app-container"
-                        sh "docker rm my-app-container"
+                        bat "docker stop my-app-container"
+                        bat "docker rm my-app-container"
                         echo "Existing container stopped and removed."
                     } catch (e) {
                         echo "No existing container to stop/remove, proceeding..."
@@ -58,7 +58,7 @@ pipeline {
                 }
                 
                 // Run the newly built image in a detached mode (-d), mapping the port, and naming the container.
-                sh "docker run -d --name my-app-container -p ${APP_PORT}:${APP_PORT} ${IMAGE_NAME}:${BUILD_ID}"
+                bat "docker run -d --name my-app-container -p ${APP_PORT}:${APP_PORT} ${IMAGE_NAME}:${BUILD_ID}"
                 
                 echo 'Deployment complete. Application should be accessible on http://localhost:8080'
             }
@@ -70,7 +70,7 @@ pipeline {
                 // Remove older images to save disk space
                 echo 'Pruning old build images (optional).'
                 // This command removes untagged images (dangling)
-                sh 'docker image prune -f' 
+                bat 'docker image prune -f' 
             }
         }
     }
