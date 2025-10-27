@@ -12,7 +12,8 @@ COPY package.json .
 RUN npm install
 
 # Copy the rest of the application code
-COPY . .
+# Assuming your server.js is in the root of your Jenkins workspace
+COPY . /app
 
 # Expose the application port (must match the Jenkinsfile's APP_PORT)
 EXPOSE 8080
