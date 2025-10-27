@@ -11,7 +11,7 @@ pipeline {
         // Name the Docker image (replace 'my-app' with your actual app name)
         IMAGE_NAME = 'devops-internship/sample-web-app'
         // Define the port the container will expose
-        APP_PORT = '8080'
+        APP_PORT = '8081'
     }
 
     stages {
