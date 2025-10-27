@@ -21,8 +21,8 @@ pipeline {
                 echo 'Building Docker image for the application...'
                 // Build the Docker image using the Dockerfile in the workspace root.
                 // The current build ID is used as the image tag.
-                bat 'docker build -t devops-internship/sample-web-app:2 .' 
-                bat "docker tag ${IMAGE_NAME}:${BUILD_ID} ${IMAGE_NAME}:latest"
+                docker tag devops-internship/sample-web-app:2 
+                devops-internship/sample-web-app:latest
             }
         }
 
