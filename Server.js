@@ -3,7 +3,7 @@
 
 const express = require('express');
 const app = express();
-const port = 8080; // Must match the port exposed in the Dockerfile
+const port = 8081; // Must match the port exposed in the Dockerfile
 
 app.get('/', (req, res) => {
   // Respond with a simple message showing the app is running
