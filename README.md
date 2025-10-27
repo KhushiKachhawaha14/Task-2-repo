@@ -1,3 +1,5 @@
+<img width="1907" height="1079" alt="image" src="https://github.com/user-attachments/assets/f539d0a1-f095-46e6-80ce-5b6489567b7d" />
+<img width="1907" height="1079" alt="image" src="https://github.com/user-attachments/assets/d2c2a4ed-e3db-49f1-8a43-3e2274002c66" />
 Simple CI/CD Pipeline for Docker Application
 
 This repository contains the necessary files to set up a basic, automated Continuous Integration and Continuous Deployment (CI/CD) pipeline using Jenkins and Docker. The pipeline is designed to run automatically upon every code commit.
