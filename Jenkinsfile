@@ -60,7 +60,7 @@ pipeline {
                 }
                 
                 // Run the newly built image in a detached mode (-d), mapping the port, and naming the container.
-                bat 'docker run -d --name my-app-container -p 8080:8080 devops-internship/sample-web-app:2'
+                bat 'docker run -d --name my-app-container -p 8081:8080 devops-internship/sample-web-app:2'
                 
                 echo 'Deployment complete. Application should be accessible on http://localhost:8080'
             }
