@@ -16,7 +16,7 @@ RUN npm install
 COPY . /app
 
 # Expose the application port (must match the Jenkinsfile's APP_PORT)
-EXPOSE 8080
+EXPOSE 8081
 
 # Command to run the application
 CMD ["node", "server.js"]
